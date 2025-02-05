@@ -21,6 +21,8 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url("https://i.pinimg.com/1200x/6b/4e/c4/6b4ec4d59be0021eb782bb1da29c3b34.jpg");
+    background-size:     cover;
+    background-repeat:   no-repeat;
 }
 
 body::after {
