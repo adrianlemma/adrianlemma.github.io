@@ -1,1 +1,76 @@
-<h1>HELLO GITHUB PAGES DE ADRIAN</h1>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spaceship App</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/rocket-512.png">
+    </head>
+    <body>
+        <div class="waiting hidden" id="blockScreen"></div>
+        <div class="login hidden" id="login">
+            <h1>Ingrese sus credenciales</h1>
+            <div>
+                <label for="username">Usuario:</label>
+                <input type="text" title="username" id="username" placeholder="Ingrese usuario"/>
+            </div>
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" title="password" id="password" placeholder="Ingrese contraseña"/>
+            </div>
+            <button class="form-btn" onclick="setUser()">Acceder</button>
+        </div>
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h1 id="formTitle">Nueva Nave</h1>
+                <div class="grupo">
+                    <input type="text" name="spaceshipName" id="spaceshipName"><span class="color-bar"></span>
+                    <label for="spaceshipName">Nave Espacial</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="tvProgram" id="tvProgram"><span class="color-bar"></span>
+                    <label for="tvProgram">Programa de TV</label>
+                </div>
+                <div class="grupo">
+                    <input type="number" name="capacity" id="capacity"><span class="color-bar"></span>
+                    <label for="capacity">Capacidad de la Nave</label>
+                </div>
+                <button class="form-btn" type="button" onclick="saveSpaceship()" id="saveButton">Guardar</button>
+                <button class="form-btn" type="button" onclick="cancelSave()" id="cancelButton">Cancelar</button>
+                <p class="warnings" id="warnings"></p>
+            </div>
+        </form>
+        <section class="table-section">
+            <div class="table-header">
+                <input type="number" name="searshId" id="searchId" placeholder="Ingrese ID">
+                <button type="button" class="search-btn" onclick="searchById()" id="searchById">Buscar por ID</button>
+                <input type="text" name="searshName" id="searchName" placeholder="Ingrese nombre">
+                <button type="button" class="search-btn" onclick="searchByName(true)" id="searchByName">Buscar por Nombre</button>
+                <button type="button" class="user-btn" onclick="login()" id="loginButton">Login</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="table-id">Id</th>
+                        <th class="table-name">Nave Espacial</th>
+                        <th class="table-program">Programa de TV</th>
+                        <th class="table-capacity">Capacidad</th>
+                        <th class="table-date">Ultima actualizacion</th>
+                        <th class="table-action">Accion</th>
+                    </tr>
+                </thead>
+                <tbody id="dataTable"></tbody>
+            </table>
+            <div class="table-footer">
+                <button type="button" class="page-btn" onclick="nextPage(-1)" id="prevPage">Pagina Anterior</button>
+                <label id="pageNumber">Page: 1</label>
+                <button type="button" class="page-btn" onclick="nextPage(1)" id="nextPage">Pagina Siguiente</button>
+                <input type="number" name="page-size" id="pageSize" value="20" oninput="javascript: if (this.value < 1) this.value = 1;">
+                <a>Tamaño de pagina</a>
+            </div>
+        </section>
+        <script src="scripts.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </body>
+</html>
